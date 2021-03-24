@@ -1,16 +1,24 @@
 Package: hurwitzLab
-Title: What the Package Does (One Line, Title Case)
+Title: Hurwitz Lab palettes and themes
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Kenneth",
+           family = "Schackart",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+           email = "schackartk@arizona.edu",
+           comment = c(ORCID = "https://orcid.org/0000-0002-1658-3699"))
+Description: In Hurwitz Lab, we take pride in conveying information with elegant
+    figures. We also like a level of consistency in the work produced by our
+    group. This package provide color palettes and themes to be used when
+    producing figures in R.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    ggplot2,
+    grDevices
