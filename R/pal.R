@@ -1,6 +1,6 @@
 hurwitz_colors <- c(
-  'orange' = "#fc850b",
-  'blue' = "#2099a4",
+  'orange' = "#f5811f",
+  'blue' = "#008d98",
   'light_gray' = "#c9c9c9",
   'dark_gray' = "#616161"
 )
@@ -9,6 +9,7 @@ hurwitz_colors <- c(
 #'
 #' @param ... Character names of hurwitz_colors
 #'
+#' @export
 get_hurwitz_colors <- function(...) {
   colors <- c(...)
 
@@ -36,6 +37,7 @@ hurwitz_palettes <- list(
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
+#' @export
 get_hurwitz_pal <- function(palette = "main", reverse = FALSE, ...) {
   pal <- hurwitz_palettes[[palette]]
 
@@ -52,6 +54,7 @@ get_hurwitz_pal <- function(palette = "main", reverse = FALSE, ...) {
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
+#' @export
 scale_color_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- get_hurwitz_pal(palette = palette, reverse = reverse)
 
@@ -70,6 +73,7 @@ scale_color_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FAL
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
+#' @export
 scale_fill_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- get_hurwitz_pal(palette = palette, reverse = reverse)
 
