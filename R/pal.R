@@ -83,3 +83,35 @@ scale_fill_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FALS
     scale_fill_gradientn(colours = pal(256), ...)
   }
 }
+
+#' Preview color palette for Hurwitz Lab colors
+#'
+#' @param n Number of colors to display
+#' @param name Palette name
+#' @param reverse Boolean indicating whether the palette should be reversed
+#' @param ... Additional arguments passed to discrete_scale() or
+#'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
+#'
+#' @export
+display_hurwitz_pal <- function(n, name) {
+  if(!(name %in% names(hurwitz_palettes))){
+    stop(paste(name,"is not a valid palette name for hurwitz_palettes\n"))
+  }
+  if(n<2){
+    warning("minimal value for n is 2, displaying requested palette with 2 different levels\n")
+    return(display_hurwitz_pal(3, name))
+  }
+  if(n > length(hurwitz_palettes[[name]])){
+    warning(paste("n too large, allowed maximum for palette",
+                  name,"is",length(hurwitz_palettes[[name]])),
+            "\nDisplaying the palette you asked for with that many colors\n")
+    return(display_hurwitz_pal(length(hurwitz_palettes[[name]]),name))
+  }
+
+
+  image(1:n, 1, as.matrix(1:n),
+        col=hurwitz_palettes[[name]],
+        xlab = name, ylab = "",
+        xaxt="n",yaxt="n",bty="n")
+
+}
