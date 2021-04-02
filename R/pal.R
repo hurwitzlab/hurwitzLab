@@ -18,8 +18,13 @@ get_hurwitz_colors <- function(...) {
 
   if (any(!colors %in% names(hurwitz_colors)))
     for (col in colors) {
-      if (!col %in% names(hurwitz_colors))
+      if (col == "light_grey") {
+        colors[colors == "light_grey"] <- "light_gray"
+      } else if (col == "dark_grey") {
+        colors[colors == "dark_grey"] <- "dark_gray"
+      } else if (!col %in% names(hurwitz_colors)) {
         stop(paste0("color: '", col, "' not found."))
+      }
     }
 
   hurwitz_colors[colors]
