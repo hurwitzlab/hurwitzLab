@@ -26,7 +26,7 @@ get_hurwitz_colors <- function(...) {
 }
 
 hurwitz_palettes <- list(
-  'main'  = get_hurwitz_colors("blue", "orange", "light_gray"),
+  'main'  = get_hurwitz_colors("blue", "dark_gray", "orange"),
   'classic'  = get_hurwitz_colors("blue", "orange"),
   'gray'  = get_hurwitz_colors("light_gray", "dark_gray")
 )
@@ -37,7 +37,7 @@ hurwitz_palettes <- list(
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
-#' @export
+#'
 get_hurwitz_pal <- function(palette = "main", reverse = FALSE, ...) {
   pal <- hurwitz_palettes[[palette]]
 
@@ -88,9 +88,6 @@ scale_fill_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FALS
 #'
 #' @param n Number of colors to display
 #' @param name Palette name
-#' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to discrete_scale() or
-#'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 #' @export
 display_hurwitz_pal <- function(n, name) {
@@ -99,7 +96,7 @@ display_hurwitz_pal <- function(n, name) {
   }
   if(n<2){
     warning("minimal value for n is 2, displaying requested palette with 2 different levels\n")
-    return(display_hurwitz_pal(3, name))
+    return(display_hurwitz_pal(2, name))
   }
   if(n > length(hurwitz_palettes[[name]])){
     warning(paste("n too large, allowed maximum for palette",
@@ -110,8 +107,8 @@ display_hurwitz_pal <- function(n, name) {
 
 
   image(1:n, 1, as.matrix(1:n),
-        col=hurwitz_palettes[[name]],
+        col = hurwitz_palettes[[name]],
         xlab = name, ylab = "",
-        xaxt="n",yaxt="n",bty="n")
+        xaxt = "n", yaxt = "n", bty = "n")
 
 }
