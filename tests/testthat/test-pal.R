@@ -5,6 +5,15 @@ test_that("get_hurwitz_color() returns correct colors", {
   expect_equal("#616161", get_hurwitz_colors("dark_gray"), ignore_attr = TRUE)
 })
 
+test_that("get_hurwitz_color() accepts alternate spelling", {
+  expect_equal(get_hurwitz_colors("light_grey"),
+               get_hurwitz_colors("light_gray"), ignore_attr = TRUE)
+  expect_equal(get_hurwitz_colors("dark_grey"),
+               get_hurwitz_colors("dark_gray"), ignore_attr = TRUE)
+  expect_equal(get_hurwitz_colors("orange", "dark_grey"),
+               get_hurwitz_colors("orange", "dark_gray"), ignore_attr = TRUE)
+})
+
 test_that("get_hurwitz_color() throws error on invalid colors", {
   expect_error(get_hurwitz_colors("foo"), "color: 'foo' not found.")
 })
