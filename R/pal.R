@@ -1,7 +1,7 @@
 hurwitz_colors <- c(
-  'orange' = "#f5811f",
-  'blue' = "#008d98",
-  'light_gray' = "#c9c9c9",
+  'orange' = "#F5811F",
+  'blue' = "#008D98",
+  'light_gray' = "#C9C9C9",
   'dark_gray' = "#616161"
 )
 
@@ -59,9 +59,9 @@ scale_color_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FAL
   pal <- get_hurwitz_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    discrete_scale("colour", paste0("hurwitz_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("colour", paste0("hurwitz_", palette), palette = pal, ...)
   } else {
-    scale_color_gradientn(colours = pal(256), ...)
+    ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
 }
 
@@ -78,9 +78,9 @@ scale_fill_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FALS
   pal <- get_hurwitz_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    discrete_scale("fill", paste0("hurwitz_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("fill", paste0("hurwitz_", palette), palette = pal, ...)
   } else {
-    scale_fill_gradientn(colours = pal(256), ...)
+    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }
 
