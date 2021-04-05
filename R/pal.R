@@ -12,17 +12,14 @@ hurwitz_colors <- c(
 #' @export
 get_hurwitz_colors <- function(...) {
   colors <- c(...)
+  colors <- stringr::str_replace(colors, "grey", "gray")
 
   if (is.null(colors))
     return (hurwitz_colors)
 
   if (any(!colors %in% names(hurwitz_colors)))
     for (col in colors) {
-      if (col == "light_grey") {
-        colors[colors == "light_grey"] <- "light_gray"
-      } else if (col == "dark_grey") {
-        colors[colors == "dark_grey"] <- "dark_gray"
-      } else if (!col %in% names(hurwitz_colors)) {
+      if (!col %in% names(hurwitz_colors)) {
         stop(paste0("color: '", col, "' not found."))
       }
     }
@@ -44,6 +41,11 @@ hurwitz_palettes <- list(
 #'
 #'
 get_hurwitz_pal <- function(palette = "main", reverse = FALSE, ...) {
+  palette <- stringr::str_replace(palette, "grey", "gray")
+
+  if (!palette %in% names(hurwitz_palettes))
+    stop(paste0("palette: '", palette, "' not found."))
+
   pal <- hurwitz_palettes[[palette]]
 
   if (reverse) pal <- rev(pal)
@@ -110,10 +112,8 @@ display_hurwitz_pal <- function(n, name) {
     return(display_hurwitz_pal(length(hurwitz_palettes[[name]]),name))
   }
 
-
   image(1:n, 1, as.matrix(1:n),
         col = hurwitz_palettes[[name]],
         xlab = name, ylab = "",
         xaxt = "n", yaxt = "n", bty = "n")
-
 }
