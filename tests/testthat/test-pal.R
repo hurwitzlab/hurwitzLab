@@ -1,8 +1,8 @@
 test_that("get_hurwitz_color() returns correct colors", {
   expect_equal("#F5811F", get_hurwitz_colors("orange"), ignore_attr = TRUE)
-  expect_equal("#008D98", get_hurwitz_colors("blue"), ignore_attr = TRUE)
-  expect_equal("#C9C9C9", get_hurwitz_colors("light_gray"), ignore_attr = TRUE)
-  expect_equal("#616161", get_hurwitz_colors("dark_gray"), ignore_attr = TRUE)
+  expect_equal("#018D97", get_hurwitz_colors("teal"), ignore_attr = TRUE)
+  expect_equal("#CCCCCC", get_hurwitz_colors("light_gray"), ignore_attr = TRUE)
+  expect_equal("#6A6A6A", get_hurwitz_colors("dark_gray"), ignore_attr = TRUE)
 })
 
 test_that("get_hurwitz_color() accepts alternate spelling of grey/gray", {
@@ -26,7 +26,7 @@ test_that("get_hurwitz_pal() returns valid palettes", {
 
   # Interpolated palette
   gray_interp <- get_hurwitz_pal("gray")(3)
-  expect_equal(gray_interp, c("#C9C9C9", "#949494", "#616161"),
+  expect_equal(gray_interp, c("#CCCCCC", "#9B9B9B", "#6A6A6A"),
                ignore_attr = TRUE)
 
   # Robustness with gray/grey
