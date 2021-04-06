@@ -4,12 +4,12 @@
 \alias{display_hurwitz_pal}
 \title{Preview color palette for Hurwitz Lab colors}
 \usage{
-display_hurwitz_pal(n, name)
+display_hurwitz_pal(name, n = length(hurwitz_palettes[[name]]))
 }
 \arguments{
-\item{n}{Number of colors to display}
-
 \item{name}{Palette name}
+
+\item{n}{Number of colors to display}
 }
 \description{
 Preview color palette for Hurwitz Lab colors
