@@ -1,8 +1,15 @@
 hurwitz_colors <- c(
   'orange' = "#F5811F",
-  'blue' = "#008D98",
-  'light_gray' = "#C9C9C9",
-  'dark_gray' = "#616161"
+  'teal' = "#018D97",
+  'gold' = "#FFD900",
+  'viking' = "#61CDDC",
+  'dark_gray' = "#6A6A6A",
+  'red' = "#8B3726",
+  'tan' = "#D2B48C",
+  'cyan' = "#97FFFF",
+  'charcoal' = "#333333",
+  'light_gray' = "#CCCCCC",
+  'brown' = "#8B7355"
 )
 
 #' Extract colors as hex codes
@@ -12,10 +19,11 @@ hurwitz_colors <- c(
 #' @export
 get_hurwitz_colors <- function(...) {
   colors <- c(...)
-  colors <- stringr::str_replace(colors, "grey", "gray")
 
   if (is.null(colors))
     return (hurwitz_colors)
+
+  colors <- stringr::str_replace(colors, "grey", "gray")
 
   if (any(!colors %in% names(hurwitz_colors)))
     for (col in colors) {
@@ -28,9 +36,17 @@ get_hurwitz_colors <- function(...) {
 }
 
 hurwitz_palettes <- list(
-  'main'  = get_hurwitz_colors("blue", "dark_gray", "orange"),
-  'classic'  = get_hurwitz_colors("blue", "orange"),
-  'gray'  = get_hurwitz_colors("light_gray", "dark_gray")
+  'all' = get_hurwitz_colors("orange", "teal", "gold", "viking",
+                             "dark_gray", "red", "tan", "cyan",
+                             "charcoal", "light_gray", "brown"),
+  'main'  = get_hurwitz_colors("teal", "dark_gray", "orange"),
+  'classic'  = get_hurwitz_colors("teal", "orange"),
+  'gray'  = get_hurwitz_colors("light_gray", "dark_gray"),
+  'distinguish' = get_hurwitz_colors("teal", "gold", "dark_gray", "orange"),
+  'distinguish2' = get_hurwitz_colors("viking", "gold", "dark_gray", "orange"),
+  'shallow_ocean' = get_hurwitz_colors("gold", "tan", "light_gray", "viking"),
+  'deep_ocean' = get_hurwitz_colors("teal", "dark_gray", "brown", "light_gray"),
+  'contrast' = get_hurwitz_colors("teal", "gold", "red")
 )
 
 #' Return function to interpolate a color palette
@@ -97,19 +113,19 @@ scale_fill_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FALS
 #' @param name Palette name
 #'
 #' @export
-display_hurwitz_pal <- function(n, name) {
+display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
   if(!(name %in% names(hurwitz_palettes))){
     stop(paste(name,"is not a valid palette name for hurwitz_palettes\n"))
   }
   if(n<2){
     warning("minimal value for n is 2, displaying requested palette with 2 different levels\n")
-    return(display_hurwitz_pal(2, name))
+    return(display_hurwitz_pal(name, 2))
   }
   if(n > length(hurwitz_palettes[[name]])){
     warning(paste("n too large, allowed maximum for palette",
                   name,"is",length(hurwitz_palettes[[name]])),
             "\nDisplaying the palette you asked for with that many colors\n")
-    return(display_hurwitz_pal(length(hurwitz_palettes[[name]]),name))
+    return(display_hurwitz_pal(name, length(hurwitz_palettes[[name]])))
   }
 
   image(1:n, 1, as.matrix(1:n),
