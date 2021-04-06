@@ -35,6 +35,29 @@ devtools::install_github("schackartk/hurwitzLab")
 
 This package currently provides color palettes for Hurwitz Lab.
 
+Here are all colors:
+
+```{r colors, message = FALSE, warning = FALSE, echo = FALSE}
+library(dplyr)
+library(gt)
+library(hurwitzLab)
+
+hurwitz_colors <- get_hurwitz_colors()
+
+tibble(
+    name = names(hurwitz_colors),
+    color_hex = hurwitz_colors,
+  ) %>% 
+  gt() %>% 
+  data_color(columns = "color_hex",
+             colors = scales::col_factor(palette = hurwitz_colors,
+                                         domain = hurwitz_colors,
+                                         ordered = TRUE)) %>% 
+  tab_header(title = "hurwitzLab colors") %>% 
+  cols_label(name = "Name", color_hex = "Color")
+```
+
+
 ### Available Color Palettes
 
 The following palettes are available: main, classic, gray
@@ -44,7 +67,7 @@ Palettes can be previewed using the `display_hurwitz_pal()` function:
 ```{r previewing}
 library(hurwitzLab)
 
-display_hurwitz_pal(3, "main")
+display_hurwitz_pal("main", 3)
 ```
 
 
