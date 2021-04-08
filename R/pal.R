@@ -56,7 +56,7 @@ hurwitz_palettes <- list(
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
 #'
-get_hurwitz_pal <- function(palette = "main", reverse = FALSE, ...) {
+get_hurwitz_pal <- function(palette = "all", reverse = FALSE, ...) {
   palette <- stringr::str_replace(palette, "grey", "gray")
 
   if (!palette %in% names(hurwitz_palettes))
