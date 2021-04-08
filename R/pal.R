@@ -78,7 +78,7 @@ get_hurwitz_pal <- function(palette = "main", reverse = FALSE, ...) {
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 #' @export
-scale_color_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
+scale_color_hurwitz <- function(palette = "all", discrete = TRUE, reverse = FALSE, ...) {
   pal <- get_hurwitz_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
@@ -97,7 +97,7 @@ scale_color_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FAL
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 #' @export
-scale_fill_hurwitz <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
+scale_fill_hurwitz <- function(palette = "all", discrete = TRUE, reverse = FALSE, ...) {
   pal <- get_hurwitz_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
@@ -132,4 +132,13 @@ display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
         col = hurwitz_palettes[[name]],
         xlab = name, ylab = "",
         xaxt = "n", yaxt = "n", bty = "n")
+}
+
+#' Print hex codes of colors in a palette
+#'
+#' @param name Palette name
+#'
+#' @export
+hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
+
 }
