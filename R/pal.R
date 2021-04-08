@@ -129,7 +129,7 @@ display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
   }
 
   image(1:n, 1, as.matrix(1:n),
-        col = hurwitz_palettes[[name]],
+        col = hurwitz_pal(name),
         xlab = name, ylab = "",
         xaxt = "n", yaxt = "n", bty = "n")
 }
@@ -140,5 +140,5 @@ display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
 #'
 #' @export
 hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
-
+  return(hurwitz_palettes[[name]])
 }
