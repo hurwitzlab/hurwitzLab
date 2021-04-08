@@ -4,7 +4,7 @@
 \alias{get_hurwitz_pal}
 \title{Return function to interpolate a color palette}
 \usage{
-get_hurwitz_pal(palette = "main", reverse = FALSE, ...)
+get_hurwitz_pal(palette = "all", reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in hurwitz_palettes}

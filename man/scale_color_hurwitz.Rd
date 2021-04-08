@@ -4,7 +4,7 @@
 \alias{scale_color_hurwitz}
 \title{Color scale constructor for Hurwitz Lab colors}
 \usage{
-scale_color_hurwitz(palette = "main", discrete = TRUE, reverse = FALSE, ...)
+scale_color_hurwitz(palette = "all", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in hurwitz_palettes}
