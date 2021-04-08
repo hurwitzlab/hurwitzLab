@@ -49,6 +49,45 @@ hurwitz_palettes <- list(
   'contrast' = get_hurwitz_colors("teal", "gold", "red")
 )
 
+#' Print hex codes of colors in a palette
+#'
+#' @param name Palette name
+#'
+#' @export
+hurwitz_pal <- function(name) {
+  if(!(name %in% names(hurwitz_palettes))){
+    stop(paste(name,"is not a valid palette name for hurwitz_palettes\n"))
+  }
+
+  return(hurwitz_palettes[[name]])
+}
+
+#' Preview color palette for Hurwitz Lab colors
+#'
+#' @param n Number of colors to display
+#' @param name Palette name
+#'
+#' @export
+display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
+  pal_colors <- hurwitz_pal(name)
+
+  if(n<2){
+    warning("minimal value for n is 2, displaying requested palette with 2 different levels\n")
+    return(display_hurwitz_pal(name, 2))
+  }
+  if(n > length(hurwitz_palettes[[name]])){
+    warning(paste("n too large, allowed maximum for palette",
+                  name,"is",length(hurwitz_palettes[[name]])),
+            "\nDisplaying the palette you asked for with that many colors\n")
+    return(display_hurwitz_pal(name, length(hurwitz_palettes[[name]])))
+  }
+
+  image(1:n, 1, as.matrix(1:n),
+        col = pal_colors,
+        xlab = name, ylab = "",
+        xaxt = "n", yaxt = "n", bty = "n")
+}
+
 #' Return function to interpolate a color palette
 #'
 #' @param palette Character name of palette in hurwitz_palettes
@@ -105,43 +144,4 @@ scale_fill_hurwitz <- function(palette = "all", discrete = TRUE, reverse = FALSE
   } else {
     ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
-}
-
-#' Preview color palette for Hurwitz Lab colors
-#'
-#' @param n Number of colors to display
-#' @param name Palette name
-#'
-#' @export
-display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
-  pal_colors <- hurwitz_pal(name)
-
-  if(n<2){
-    warning("minimal value for n is 2, displaying requested palette with 2 different levels\n")
-    return(display_hurwitz_pal(name, 2))
-  }
-  if(n > length(hurwitz_palettes[[name]])){
-    warning(paste("n too large, allowed maximum for palette",
-                  name,"is",length(hurwitz_palettes[[name]])),
-            "\nDisplaying the palette you asked for with that many colors\n")
-    return(display_hurwitz_pal(name, length(hurwitz_palettes[[name]])))
-  }
-
-  image(1:n, 1, as.matrix(1:n),
-        col = pal_colors,
-        xlab = name, ylab = "",
-        xaxt = "n", yaxt = "n", bty = "n")
-}
-
-#' Print hex codes of colors in a palette
-#'
-#' @param name Palette name
-#'
-#' @export
-hurwitz_pal <- function(name) {
-  if(!(name %in% names(hurwitz_palettes))){
-    stop(paste(name,"is not a valid palette name for hurwitz_palettes\n"))
-  }
-
-  return(hurwitz_palettes[[name]])
 }
