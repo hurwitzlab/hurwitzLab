@@ -42,11 +42,11 @@ test_that("scales work properly", {
   # Defaults
 
   fill_scale <- scale_fill_hurwitz()
-  expect_equal(fill_scale$scale_name, "hurwitz_main")
+  expect_equal(fill_scale$scale_name, "hurwitz_all")
   expect_equal(fill_scale$is_discrete(), TRUE)
 
   color_scale <- scale_color_hurwitz()
-  expect_equal(color_scale$scale_name, "hurwitz_main")
+  expect_equal(color_scale$scale_name, "hurwitz_all")
   expect_equal(color_scale$is_discrete(), TRUE)
 
   # Can make continuous
