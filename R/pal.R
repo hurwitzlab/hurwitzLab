@@ -114,9 +114,8 @@ scale_fill_hurwitz <- function(palette = "all", discrete = TRUE, reverse = FALSE
 #'
 #' @export
 display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
-  if(!(name %in% names(hurwitz_palettes))){
-    stop(paste(name,"is not a valid palette name for hurwitz_palettes\n"))
-  }
+  pal_colors <- hurwitz_pal(name)
+
   if(n<2){
     warning("minimal value for n is 2, displaying requested palette with 2 different levels\n")
     return(display_hurwitz_pal(name, 2))
@@ -129,7 +128,7 @@ display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
   }
 
   image(1:n, 1, as.matrix(1:n),
-        col = hurwitz_pal(name),
+        col = pal_colors,
         xlab = name, ylab = "",
         xaxt = "n", yaxt = "n", bty = "n")
 }
@@ -139,6 +138,10 @@ display_hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
 #' @param name Palette name
 #'
 #' @export
-hurwitz_pal <- function(name, n = length(hurwitz_palettes[[name]])) {
+hurwitz_pal <- function(name) {
+  if(!(name %in% names(hurwitz_palettes))){
+    stop(paste(name,"is not a valid palette name for hurwitz_palettes\n"))
+  }
+
   return(hurwitz_palettes[[name]])
 }
