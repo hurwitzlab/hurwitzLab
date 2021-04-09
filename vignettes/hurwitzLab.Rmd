@@ -43,7 +43,7 @@ tibble(
 
 # Scaling Colors or Fill in `ggplot2`
 
-This package provides scale functions which can be added directly to a 
+Scale functions are provided which can be added directly to a 
 gplot2 object. Usage is similar to `rColorBrewer::scale_color_brewer()` or `viridis::scale_color_viridis()`.
 
 ### Scaling colors
@@ -76,7 +76,7 @@ ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Petal.Length)) +
   scale_color_hurwitz(discrete = FALSE, palette = "classic")
 ```
 
-Colors to use can be manually assigned using `scale_color_gradientn()`. To access colors we can use `get_hurwitz_colors()` which is detailed below.
+Colors to use can be manually assigned using `ggplot2::scale_color_gradientn()`. To access colors we can use `get_hurwitz_colors()` which is detailed below.
 
 ```{r continuous_custom}
 library(scales)
@@ -106,10 +106,17 @@ All colors in this package can be accessed by calling `get_hurwitz_colors()`:
 ```{r get_colors}
 get_hurwitz_colors()
 ```
+
 Alternatively, the hex code of specific colors can be accessed:
 ```{r get_some_colors}
 get_hurwitz_colors("charcoal", "teal")
 ```
+
+To see the hex codes of all colors in a specific palette:
+```{r hurwitz_pal}
+hurwitz_pal("distinguish2")
+```
+
 
 ### Previewing palettes
 
