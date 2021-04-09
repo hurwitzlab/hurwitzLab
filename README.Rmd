@@ -31,72 +31,29 @@ You can install hurwitzLab with:
 devtools::install_github("schackartk/hurwitzLab")
 ```
 
+However, I would suggest installing with 
+
+``` r
+devtools::install_github("schackartk/hurwitzLab", build_vignettes = TRUE)
+```
+
+This will build and make the vignettes available to you, which are very helpful for learning how to use this package. The drawback is that you may need to install other packages to make it work.
+
+You can then access the vignettes with
+
+``` r
+vignette("hurwitzLab")
+```
+
 ## What's here?
 
-This package currently provides color palettes for Hurwitz Lab.
+* Colors
+* Several pre-defined palettes
+* Scaling functions for implementation in `ggplot2`
 
-Here are all colors:
-
-```{r colors, message = FALSE, warning = FALSE, echo = FALSE}
-library(dplyr)
-library(gt)
-library(hurwitzLab)
-
-hurwitz_colors <- get_hurwitz_colors()
-
-tibble(
-    name = names(hurwitz_colors),
-    color_hex = hurwitz_colors,
-  ) %>% 
-  gt() %>% 
-  data_color(columns = "color_hex",
-             colors = scales::col_factor(palette = hurwitz_colors,
-                                         domain = hurwitz_colors,
-                                         ordered = TRUE)) %>% 
-  tab_header(title = "hurwitzLab colors") %>% 
-  cols_label(name = "Name", color_hex = "Color")
-```
-
-
-### Available Color Palettes
-
-The following palettes are available: main, classic, gray
-
-Palettes can be previewed using the `display_hurwitz_pal()` function:
-
-```{r previewing}
-library(hurwitzLab)
-
-display_hurwitz_pal("main", 3)
-```
+## To learn more
 
 
 
-## Examples
-
-Usage is similar to other palette packages. Functions are available for both 
-scale_fill and scale_color.
-
-```{r example}
-library(hurwitzLab)
-library(ggplot2)
-
-ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
-  geom_point() +
-  theme_light() +
-  hurwitzLab::scale_color_hurwitz()
-```
-
-Palettes can be used for continuous variables too:
-
-```{r continuous}
-library(hurwitzLab)
-library(ggplot2)
-
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Petal.Length)) +
-  geom_point() +
-  theme_light() +
-  scale_color_hurwitz(discrete = FALSE, palette = "classic")
-```
 
 
