@@ -35,6 +35,13 @@ get_hurwitz_colors <- function(...) {
   hurwitz_colors[colors]
 }
 
+#' Extract colors as hex codes
+#'
+#' @param ... Character names of hurwitz_colours
+#'
+#' @export
+get_hurwitz_colours <- get_hurwitz_colours
+
 hurwitz_palettes <- list(
   'all' = get_hurwitz_colors("orange", "teal", "gold", "viking",
                              "dark_gray", "red", "tan", "cyan",
@@ -126,6 +133,17 @@ scale_color_hurwitz <- function(palette = "all", discrete = TRUE, reverse = FALS
     ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
 }
+
+#' Colour scale constructor for Hurwitz Lab colors
+#'
+#' @param palette Character name of palette in hurwitz_palettes
+#' @param discrete Boolean indicating whether color aesthetic is discrete or not
+#' @param reverse Boolean indicating whether the palette should be reversed
+#' @param ... Additional arguments passed to discrete_scale() or
+#'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
+#'
+#' @export
+scale_colour_hurwitz <- scale_color_hurwitz
 
 #' Fill scale constructor for Hurwitz Lab colors
 #'
