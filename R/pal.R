@@ -40,7 +40,7 @@ get_hurwitz_colors <- function(...) {
 #' @param ... Character names of hurwitz_colours
 #'
 #' @export
-get_hurwitz_colours <- get_hurwitz_colours
+get_hurwitz_colours <- get_hurwitz_colors
 
 hurwitz_palettes <- list(
   'all' = get_hurwitz_colors("orange", "teal", "gold", "viking",
