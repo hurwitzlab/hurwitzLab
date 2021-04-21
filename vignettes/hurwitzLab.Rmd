@@ -112,7 +112,7 @@ Alternatively, the hex code of specific colors can be accessed:
 get_hurwitz_colors("charcoal", "teal")
 ```
 
-To see the hex codes of all colors in a specific palette:
+To see the colors and their hex codes in a specific palette:
 ```{r hurwitz_pal}
 hurwitz_pal("distinguish2")
 ```
