@@ -2,6 +2,8 @@
 
 export(display_hurwitz_pal)
 export(get_hurwitz_colors)
+export(get_hurwitz_colours)
 export(hurwitz_pal)
 export(scale_color_hurwitz)
+export(scale_colour_hurwitz)
 export(scale_fill_hurwitz)
