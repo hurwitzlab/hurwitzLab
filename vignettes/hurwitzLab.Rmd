@@ -39,14 +39,16 @@ tibble(
   tab_header(title = "hurwitzLab colors") %>% 
   cols_label(name = "Name", color_hex = "Color")
 ```
+The following palettes are included:
 
+![ ](../figures/palettes.png){width=75% height=75%}
 
 # Scaling Colors or Fill in `ggplot2`
 
 Scale functions are provided which can be added directly to a 
 gplot2 object. Usage is similar to `rColorBrewer::scale_color_brewer()` or `viridis::scale_color_viridis()`.
 
-### Scaling colors
+### Scaling Colors
 ```{r scale_colors}
 library(ggplot2)
 
@@ -56,7 +58,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
   scale_color_hurwitz(palette = "distinguish")
 ```
 
-### Scaling fill
+### Scaling Fill
 
 ```{r scale_fill}
 ggplot(iris, aes(x = Species, y = Sepal.Width, fill = Species)) +
@@ -87,7 +89,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Width)) +
   scale_color_gradientn(colors = get_hurwitz_colors("red", "teal"))
 ```
 
-## Reversing a palette
+## Reversing a Palette
 
 ```{r reverse}
 ggplot(iris, aes(x = Species, y = Sepal.Width, fill = Species)) +
@@ -118,7 +120,7 @@ hurwitz_pal("distinguish2")
 ```
 
 
-### Previewing palettes
+### Previewing Palettes
 
 Palettes can be previewed using the function `display_hurwitz_pal()`:
 
