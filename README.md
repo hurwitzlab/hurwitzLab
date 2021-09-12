@@ -35,10 +35,15 @@ You can then access the vignettes with
 vignette("hurwitzLab")
 ```
 
+If the package is installed without the `build_vignettes = TRUE` option,
+the vignette can be built with
+
+``` r
+devtools::build_vignettes("hurwitzLab")
+```
+
 ## What’s here?
 
 -   Colors
 -   Several pre-defined palettes
 -   Scaling functions for implementation in `ggplot2`
-
-## To learn more
