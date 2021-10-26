@@ -28,13 +28,13 @@ producing figures in R.
 You can install hurwitzLab with:
 
 ``` r
-devtools::install_github("schackartk/hurwitzLab")
+devtools::install_github("hurwitzlab/hurwitzLab")
 ```
 
 However, I would suggest installing with 
 
 ``` r
-devtools::install_github("schackartk/hurwitzLab", build_vignettes = TRUE)
+devtools::install_github("hurwitzlab/hurwitzLab", build_vignettes = TRUE)
 ```
 
 This will build and make the vignettes available to you, which are very helpful for learning how to use this package. The drawback is that you may need to install other packages to make it work.

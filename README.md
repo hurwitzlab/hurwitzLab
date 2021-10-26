@@ -6,11 +6,10 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-## What’s here?
-
--   Colors
--   Several pre-defined palettes
--   Scaling functions for implementation in `ggplot2`
+In Hurwitz Lab, we take pride in conveying information with elegant
+figures. We also like a level of consistency in the work produced by our
+group. This package provide color palettes and themes to be used when
+producing figures in R.
 
 ## Installation
 
@@ -43,6 +42,8 @@ the vignette can be built with
 devtools::build_vignettes("hurwitzLab")
 ```
 
-## Questions or comments?
+## What’s here?
 
-Contact Kenneth Schackart <schackartk1@gmail.com>
+-   Colors
+-   Several pre-defined palettes
+-   Scaling functions for implementation in `ggplot2`
