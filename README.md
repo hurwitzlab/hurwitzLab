@@ -17,13 +17,13 @@
 You can install hurwitzLab with:
 
 ``` r
-devtools::install_github("schackartk/hurwitzLab")
+devtools::install_github("hurwitzlab/hurwitzLab")
 ```
 
 However, I would suggest installing with
 
 ``` r
-devtools::install_github("schackartk/hurwitzLab", build_vignettes = TRUE)
+devtools::install_github("hurwitzlab/hurwitzLab", build_vignettes = TRUE)
 ```
 
 This will build and make the vignettes available to you, which are very
@@ -42,3 +42,7 @@ the vignette can be built with
 ``` r
 devtools::build_vignettes("hurwitzLab")
 ```
+
+## Questions or comments?
+
+Contact Kenneth Schackart <schackartk1@gmail.com>
